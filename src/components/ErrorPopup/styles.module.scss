@@ -1,0 +1,39 @@
+.popup {
+    width: 557px;
+    height: 100px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    border: 1px solid #333;
+    background: #232323;
+    box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.30);
+
+    .closeBtn {
+        position: absolute;
+        top: 11px;
+        right: 11px;
+        padding: 0;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .icon {
+        color: #CECECE;
+    }
+
+    .errorTitle {
+        margin: 0;
+        color: #CECECE;
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 20px;
+    }
+}

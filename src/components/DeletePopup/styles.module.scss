@@ -1,0 +1,83 @@
+.popup {
+    width: 496px;
+    position: fixed;
+    padding: 137px 13px 12px 11px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    border: 1px solid #333;
+    background: #232323;
+    box-shadow: 0px 8px 40px 0px rgba(0, 0, 0, 0.30);
+
+    &::before {
+        content: "";
+        background-image: url("../../assets/icons/delete.svg");
+        color: #DB5C5C;
+        width: 48px;
+        height: 52px;
+        position: absolute;
+        top: 44px;
+        left: 50%;
+        transform: translate(-50%, 0);
+    }
+
+    .info {
+        margin-bottom: 41px;
+
+        .path {
+            margin: 0;
+            margin-bottom: 5px;
+            color: #CECECE;
+            text-align: center;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 20px;
+        }
+
+        .text {
+            margin: 0;
+            color: #CECECE;
+            text-align: center;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+        }
+    }
+
+    .btnWrapper {
+        display: flex;
+        gap: 4px;
+        width: 100%;
+
+        .btn {
+            flex: 1 1;
+            padding: 6px 0;
+            color: #CECECE;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            border-radius: 5px;
+            background: #393939;
+            border: none;
+            cursor: pointer;
+
+            &:last-child {
+                color: #DB5C5C;
+                font-weight: 600;
+                background: #5E3838;
+            }
+
+            &:hover {
+                opacity: 0.7;
+            }
+
+            &:active {
+                opacity: 0.5;
+            }
+        }
+    }
+}
