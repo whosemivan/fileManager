@@ -8,11 +8,9 @@ import { v4 as uuidv4 } from 'uuid';
 export const Ctx = createContext<ContextFileProp | null>(null);
 
 function App() {
-  const [files, setFiles] = useState<File[]>([]);
-  const [actualPath, setActualPath] = useState('Folder 1');
-
-  useEffect(() => {
-    setFiles([
+  const [files, setFiles] = useState<File[]>(() => {
+    const savedFiles = localStorage.getItem('files');
+    return savedFiles ? JSON.parse(savedFiles) : [
       {
         id: uuidv4(),
         name: 'Folder 1',
@@ -62,8 +60,14 @@ function App() {
           }
         ]
       },
-    ]);
-  }, [])
+    ];
+  });
+  const [actualPath, setActualPath] = useState('Folder 1');
+
+
+  useEffect(() => {
+    localStorage.setItem('files', JSON.stringify(files));
+  }, [files])
 
   return (
     <Ctx.Provider value={{ files, setFiles, actualPath, setActualPath }}>

@@ -9,7 +9,7 @@ type AddPopupType = {
     parentFolder: string;
     isFolder: boolean;
     setName: (arg: string) => void;
-    addFile: () => void;
+    addFile?: () => void;
     addFolder: () => void;
     elementName: string;
     setPopupOpen: (arg: boolean) => void;
@@ -35,7 +35,13 @@ const AddPopup = ({ parentFolder, isFolder, setName, addFile, addFolder, element
     const handleEnterKey = (evt: any) => {
         if (evt.key === 'Enter') {
             evt.preventDefault();
-            elementName !== '' && isFolder ? addFolder() : addFile();
+            if (elementName !== '') {
+                if (isFolder) {
+                    addFolder();
+                } else {
+                    addFile && addFile();
+                }
+            }
         }
     };
 
@@ -71,14 +77,18 @@ const AddPopup = ({ parentFolder, isFolder, setName, addFile, addFolder, element
 
                     <button onClick={() => {
                         if (elementName !== '') {
-                            isFolder ? addFolder() : addFile();
+                            if (isFolder) {
+                                addFolder()
+                            } else {
+                                addFile && addFile();
+                            }
                         }
                     }} type='button' className={styles.btn}>
                         <AddBoxRoundedIcon className={styles.icon} />
                         <span>{isFolder ? 'Add folder' : 'Add Sequence'}</span>
                     </button>
                 </div>
-            </div>
+            </div >
             <div onClick={() => setPopupOpen(false)} className={styles.overflow}></div>
         </>
     );

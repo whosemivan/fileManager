@@ -56,7 +56,6 @@ const FileComponent = ({ name, children, isFolder, id }: FileComponentProps) => 
             isFolder: false,
         };
 
-        console.log(children);
         if (children?.some(obj => obj.name === newFile.name)) {
             setErrorPopupOpen(true);
             setAddNamePopupOpen(false);
